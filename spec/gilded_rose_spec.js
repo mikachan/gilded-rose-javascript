@@ -8,7 +8,7 @@ describe("Gilded Rose", () => {
     it("should decrease the sell_in and quality values by 1 for a default item", () => {
         items.push(new Item("+5 Dexterity Vest", 10, 20));
 
-        update_quality(items);
+        updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(9);
         expect(items[0].quality).toBe(19);
@@ -17,7 +17,7 @@ describe("Gilded Rose", () => {
     it("should decrease quality twice as fast if sell_in is less than 0", () => {
         items.push(new Item("+5 Dexterity Vest", -1, 20));
 
-        update_quality(items);
+        updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(-2);
         expect(items[0].quality).toBe(18);
@@ -26,7 +26,7 @@ describe("Gilded Rose", () => {
     it("should never let the quality value be negative", () => {
         items.push(new Item("+5 Dexterity Vest", 10, 0));
 
-        update_quality(items);
+        updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(9);
         expect(items[0].quality).toBe(0);
@@ -35,7 +35,7 @@ describe("Gilded Rose", () => {
     it("should increase the quality of Aged Brie the older it gets", () => {
         items.push(new Item("Aged Brie", 1, 0));
 
-        update_quality(items);
+        updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(0);
         expect(items[0].quality).toBe(1);
@@ -44,7 +44,7 @@ describe("Gilded Rose", () => {
     it("should never let the quality of an item go above 50", () => {
         items.push(new Item("Aged Brie", -50, 50));
 
-        update_quality(items);
+        updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(-51);
         expect(items[0].quality).toBe(50);
@@ -53,7 +53,7 @@ describe("Gilded Rose", () => {
     it("should never decrease the sell_in or quality values of Sulfuras", () => {
         items.push(new Item("Sulfuras, Hand of Ragnaros", 80, 80));
 
-        update_quality(items);
+        updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(80);
         expect(items[0].quality).toBe(80);
@@ -64,7 +64,7 @@ describe("Gilded Rose", () => {
             new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20)
         );
 
-        update_quality(items);
+        updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(14);
         expect(items[0].quality).toBe(21);
@@ -76,7 +76,7 @@ describe("Gilded Rose", () => {
             new Item("Backstage passes to a TAFKAL80ETC concert", 7, 21)
         );
 
-        update_quality(items);
+        updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(9);
         expect(items[0].quality).toBe(22);
@@ -90,7 +90,7 @@ describe("Gilded Rose", () => {
             new Item("Backstage passes to a TAFKAL80ETC concert", 2, 25)
         );
 
-        update_quality(items);
+        updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(4);
         expect(items[0].quality).toBe(23);
@@ -103,7 +103,7 @@ describe("Gilded Rose", () => {
             new Item("Backstage passes to a TAFKAL80ETC concert", -1, 20)
         );
 
-        update_quality(items);
+        updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(-2);
         expect(items[0].quality).toBe(0);
@@ -112,7 +112,7 @@ describe("Gilded Rose", () => {
     it("should decrease the quality of Conjured items twice as fast", () => {
         items.push(new Item("Conjured Mana Cake", 3, 6));
 
-        update_quality(items);
+        updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(2);
         expect(items[0].quality).toBe(4);
