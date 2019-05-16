@@ -1,9 +1,3 @@
-function Item(name, sell_in, quality) {
-    this.name = name;
-    this.sell_in = sell_in;
-    this.quality = quality;
-}
-
 var items = [];
 
 items.push(new Item("+5 Dexterity Vest", 10, 20));
