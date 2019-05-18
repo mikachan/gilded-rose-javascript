@@ -1,3 +1,8 @@
+// Static values
+const minQuality = 0;
+const maxQuality = 50;
+const sulfurasQuality = 80;
+
 // Check item type
 const isAgedBrie = item => {
     return item.name === "Aged Brie";
