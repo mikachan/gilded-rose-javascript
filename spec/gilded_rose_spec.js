@@ -51,12 +51,15 @@ describe("Gilded Rose", () => {
     });
 
     it("should never decrease the sell_in or quality values of Sulfuras", () => {
-        items.push(new Item("Sulfuras, Hand of Ragnaros", 80, 80));
+        items.push(new Item("Sulfuras, Hand of Ragnaros", 80, 80)),
+            items.push(new Item("Sulfuras, Hand of Ragnaros", 70, 90));
 
         updateItemStatus(items);
 
         expect(items[0].sell_in).toBe(80);
         expect(items[0].quality).toBe(80);
+        expect(items[1].sell_in).toBe(70);
+        expect(items[1].quality).toBe(80);
     });
 
     it("should increase the quality of Backstage Passes the older it gets", () => {
